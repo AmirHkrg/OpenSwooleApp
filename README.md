@@ -49,9 +49,9 @@ After this, you have access to all methods from `$server`
 ---
 ### *Much faster.*
 ###### Original version benchmark :
-![Before](/document--You-Can-Delete-This-Folder/before.png)
+![Before](/before.png)
 ###### Optimized version in this repository benchmark :
-![Before](/document--You-Can-Delete-This-Folder/after.png)
+![Before](/after.png)
 
 ---
 ## Features list :
