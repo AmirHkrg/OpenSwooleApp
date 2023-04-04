@@ -59,7 +59,7 @@ By calling any of the above methods, you get access to all related methods.
 
 ### Setup Server :
 ```php
-require_once 'lib/loader.php'; // Require OpenSwooleApp
+require_once '<OpenSwooleApp Folder>/loader.php'; // Require OpenSwooleApp
 
 $server = new OpenswooleApp('127.0.0.1', 9502); // Create Server
 ```
