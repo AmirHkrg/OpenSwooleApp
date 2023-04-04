@@ -2,6 +2,7 @@
 - Chain Methode
 - Clean Code
 - Easy To Use
+- Faster
 ---
 ### *You can use chain methode.*
 ```php
@@ -44,6 +45,13 @@ Just create an object from your server
 $server = new OpenswooleApp('127.0.0.1', 9502);
 ```
 After this, you have access to all methods from `$server`
+
+---
+### *Much faster.*
+###### Original version benchmark :
+![Before](/document--You-Can-Delete-This-Folder/before.png)
+###### Optimized version in this repository benchmark :
+![Before](/document--You-Can-Delete-This-Folder/after.png)
 
 ---
 ## Features list :
