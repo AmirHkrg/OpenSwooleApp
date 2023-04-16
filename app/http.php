@@ -8,7 +8,7 @@ class Http extends OpenswooleApp
 
     public function __construct()
     {
-        $this->create('OpenSwoole\HTTP\Server');
+        $this->createServer('OpenSwoole\HTTP\Server');
         global $server_config;
         $this->SERVER = $server_config['server'];
     }

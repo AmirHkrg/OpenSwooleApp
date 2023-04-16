@@ -4,6 +4,7 @@ require_once 'app/http.php';
 require_once 'app/websocket.php';
 require_once 'app/event.php';
 require_once 'app/timer.php';
+require_once 'app/coroutine.php';
 
 class OpenswooleApp
 {
@@ -16,7 +17,7 @@ class OpenswooleApp
         $server_config['type'] = $sock_type;
     }
 
-    protected function create(string $server_type): void
+    protected function createServer(string $server_type): void
     {
         global $server_config;
         $server_config['server'] = new $server_type($server_config['addr'], $server_config['port'], $server_config['mode'], $server_config['type']);
@@ -51,5 +52,10 @@ class OpenswooleApp
     public function Timer(): Timer
     {
         return new Timer();
+    }
+
+    public function Coroutine(): Coroutine
+    {
+        return new Coroutine();
     }
 }

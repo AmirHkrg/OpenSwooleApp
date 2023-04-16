@@ -8,7 +8,7 @@ class WebSocket extends OpenswooleApp
 
     public function __construct()
     {
-        $this->create('OpenSwoole\WebSocket\Server');
+        $this->createServer('OpenSwoole\WebSocket\Server');
         global $server_config;
         $this->SERVER = $server_config['server'];
     }
