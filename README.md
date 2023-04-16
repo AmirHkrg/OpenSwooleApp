@@ -213,6 +213,29 @@ $server
         echo "after 3000ms.\n";
     });
 ```
+- #### Coroutine Example
+###### Not the latest version! Change in the future ...
+```php
+$server
+    ->Coroutine()
+    ->run(function () use ($server){
+        go(function() use ($server)
+        {
+            $server
+            ->Coroutine()
+            ->sleep(1);
+            echo "Done 1\n";
+        });
+
+        go(function() use ($server)
+        {
+            $server
+            ->Coroutine()
+            ->sleep(1);
+            echo "Done 2\n";
+        });
+    });
+```
 ---
 
 # *Updating ...*

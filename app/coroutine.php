@@ -2,6 +2,7 @@
 
 class Coroutine extends OpenswooleApp{
     private mixed $SERVER;
+    private mixed $CHANNEL = 1;
 
     public function __construct()
     {
@@ -177,6 +178,90 @@ class Coroutine extends OpenswooleApp{
     public function map(array $list, callable $fn, float $timeout = -1): Coroutine
     {
         OpenSwoole\Coroutine::map($list, $fn, $timeout);
+        return $this;
+    }
+
+    public function statvfs(string $path): Coroutine
+    {
+        OpenSwoole\Coroutine\System::statvfs($path);
+        return $this;
+    }
+
+    public function wait(float $timeout = -1): Coroutine
+    {
+        OpenSwoole\Coroutine\System::wait($timeout);
+        return $this;
+    }
+
+    public function waitPid(int $pid, float $timeout = -1): Coroutine
+    {
+        OpenSwoole\Coroutine\System::waitPid($pid, $timeout);
+        return $this;
+    }
+
+    public function waitSignal(int $signalNum, float $timeout = -1): Coroutine
+    {
+        OpenSwoole\Coroutine\System::waitSignal($signalNum, $timeout);
+        return $this;
+    }
+
+    public function waitEvent(mixed $resource, int $events = OpenSwoole\Constant::EVENT_READ, float $timeout = -1): Coroutine
+    {
+        OpenSwoole\Coroutine\System::waitEvent($resource, $events, $timeout);
+        return $this;
+    }
+
+    public function newChannel(int $capacity = 1): Coroutine
+    {
+        $this->CHANNEL = new OpenSwoole\Coroutine\Channel($capacity);
+        return $this;
+    }
+
+    public function push(mixed $data, float $timeout = -1): Coroutine
+    {
+       $this->CHANNEL->push($data, $timeout);
+        return $this;
+    }
+
+    public function pop(float $timeout = -1): Coroutine
+    {
+        $this->CHANNEL->pop($timeout);
+        return $this;
+    }
+
+    public function close(): Coroutine
+    {
+        $this->CHANNEL->close();
+        return $this;
+    }
+
+    public function channelStats(): Coroutine
+    {
+        $this->CHANNEL->stats();
+        return $this;
+    }
+
+    public function length(): Coroutine
+    {
+        $this->CHANNEL->length();
+        return $this;
+    }
+
+    public function isEmpty(): Coroutine
+    {
+        $this->CHANNEL->isEmpty();
+        return $this;
+    }
+
+    public function isFull(): Coroutine
+    {
+        $this->CHANNEL->isFull();
+        return $this;
+    }
+
+    public function getId(): Coroutine
+    {
+        $this->CHANNEL->getId();
         return $this;
     }
 }
