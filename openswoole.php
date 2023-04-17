@@ -1,10 +1,4 @@
 <?php
-require_once 'app/udptcp.php';
-require_once 'app/http.php';
-require_once 'app/websocket.php';
-require_once 'app/event.php';
-require_once 'app/timer.php';
-require_once 'app/coroutine.php';
 
 class OpenswooleApp
 {
@@ -31,31 +25,61 @@ class OpenswooleApp
 
     public function UdpTcp(): UdpTcp
     {
+        require_once 'app/protocol/udptcp.php';
         return new UdpTcp();
     }
 
     public function Http(): Http
     {
+        require_once 'app/protocol/http.php';
         return new Http();
     }
 
     public function WebSocket(): WebSocket
     {
+        require_once 'app/protocol/websocket.php';
         return new WebSocket();
     }
 
     public function Event(): Event
     {
+        require_once 'app/schedule/event.php';
         return new Event();
     }
 
     public function Timer(): Timer
     {
+        require_once 'app/schedule/timer.php';
         return new Timer();
     }
 
     public function Coroutine(): Coroutine
     {
+        require_once 'app/coroutine/coroutine.php';
         return new Coroutine();
+    }
+
+    public function CoSystem(): CoSystem
+    {
+        require_once 'app/coroutine/coroutineSystem.php';
+        return new CoSystem();
+    }
+
+    public function CoChannel(): CoChannel
+    {
+        require_once 'app/coroutine/coroutineChannel.php';
+        return new CoChannel();
+    }
+
+    public function CoWaitGroup(): CoWaitGroup
+    {
+        require_once 'app/coroutine/coroutineWaitGroup.php';
+        return new CoWaitGroup();
+    }
+
+    public function CoServer(): CoServer
+    {
+        require_once 'app/coroutine/coroutineServer.php';
+        return new CoServer();
     }
 }

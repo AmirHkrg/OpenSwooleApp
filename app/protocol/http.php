@@ -205,8 +205,6 @@ class Http extends OpenswooleApp
         return $this;
     }
 
-    // Check sendMessage Methode Later !!!
-
     public function getClientInfo(int $fd, int $reactorId, bool $ignoreError = false): Http
     {
         $this->SERVER->getClientInfo($fd, $reactorId, $ignoreError);

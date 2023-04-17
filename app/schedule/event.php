@@ -2,14 +2,6 @@
 
 class Event extends OpenswooleApp
 {
-    private mixed $SERVER;
-
-    public function __construct()
-    {
-        global $server_config;
-        $this->SERVER = $server_config['server'];
-    }
-
     public function set(int $fd, Mixed $read_callback, Mixed $write_callback, int $flags): Event
     {
         OpenSwoole\Event::set($fd, $read_callback, $write_callback, $flags);

@@ -8,19 +8,9 @@ class UdpTcp extends OpenswooleApp
 
     public function __construct()
     {
-        $this->create('OpenSwoole\Server');
+        $this->createServer('OpenSwoole\Server');
         global $server_config;
         $this->SERVER = $server_config['server'];
-    }
-
-    public function sbs(bool $active = true): UdpTcp
-    {
-        // Stop Before Start
-        //TODO need edit : not worked
-        if ($active) {
-            $this->stop();
-        }
-        return $this;
     }
 
     public function serverOnStart(callable $action): UdpTcp

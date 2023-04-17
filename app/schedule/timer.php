@@ -2,14 +2,6 @@
 
 class Timer extends OpenswooleApp
 {
-    private mixed $SERVER;
-
-    public function __construct()
-    {
-        global $server_config;
-        $this->SERVER = $server_config['server'];
-    }
-
     public function set(array $timerSettings): Timer
     {
         // This method has been deprecated at the version v22.0.0.
