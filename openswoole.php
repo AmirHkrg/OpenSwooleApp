@@ -25,7 +25,7 @@ class OpenswooleApp
 
     public function UdpTcp(): UdpTcp
     {
-        require_once 'app/protocol/udptcp.php';
+        require_once 'app/protocol/udp-tcp.php';
         return new UdpTcp();
     }
 
@@ -55,31 +55,31 @@ class OpenswooleApp
 
     public function Coroutine(): Coroutine
     {
-        require_once 'app/coroutine/coroutine.php';
+        require_once 'app/php-coroutine/coroutine.php';
         return new Coroutine();
     }
 
     public function CoSystem(): CoSystem
     {
-        require_once 'app/coroutine/coroutineSystem.php';
+        require_once 'app/php-coroutine/coroutine-system.php';
         return new CoSystem();
     }
 
     public function CoChannel(): CoChannel
     {
-        require_once 'app/coroutine/coroutineChannel.php';
+        require_once 'app/php-coroutine/coroutine-channel.php';
         return new CoChannel();
     }
 
     public function CoWaitGroup(): CoWaitGroup
     {
-        require_once 'app/coroutine/coroutineWaitGroup.php';
+        require_once 'app/php-coroutine/coroutine-wait-group.php';
         return new CoWaitGroup();
     }
 
     public function CoServer(): CoServer
     {
-        require_once 'app/coroutine/coroutineServer.php';
+        require_once 'app/php-coroutine/coroutine-server.php';
         return new CoServer();
     }
 }
