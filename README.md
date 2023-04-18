@@ -121,6 +121,11 @@ Percentage of the requests served within a certain time (ms)
 - `WebSocket()`
 - `Timer()`
 - `Event()`
+- `Coroutine()`  Not ready
+- `CoSystem()` Not ready
+- `CoChannel()` Not ready
+- `CoWaitGroup()` Not ready
+- `CoServer()` Not ready
 
 By calling any of the above methods, you get access to all related methods.
 

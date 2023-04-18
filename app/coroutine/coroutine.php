@@ -7,6 +7,12 @@ class Coroutine extends OpenswooleApp{
         return $this;
     }
 
+    public function run(callable $action): Coroutine
+    {
+        OpenSwoole\Coroutine::run($action);
+        return $this;
+    }
+
     public function set($options): Coroutine
     {
         OpenSwoole\Coroutine::set($options);
