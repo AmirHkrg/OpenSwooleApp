@@ -4,13 +4,11 @@ require_once 'core/client-use.php';
 
 class Kernel extends Cli
 {
-    public function start()
-    {
-        $this->run_cli();
-    }
-
     public function set()
     {
-        $this->set_options();
+        $this->get_options();
     }
 }
+
+$kernel = new Kernel();
+$kernel->set();

@@ -2,18 +2,17 @@
 
 class Cli
 {
-    private function get_options(): array
+    protected function get_options()
     {
         $options = getopt("S:");
         foreach ($options as $key => $value) {
             $options[$key] = strtolower($value);
         }
-        return $options;
+        $this->validate_url($options);
     }
 
-    private function extract_start_option(): array
+    private function extract_start_option($options): array
     {
-        $options = $this->get_options();
         $data = $options["S"];
 
         $data = explode("--", $data);
@@ -31,10 +30,11 @@ class Cli
         ];
     }
 
-    private function validate_url(): bool
+    protected function validate_url($options)
     {
-        $data = $this->extract_start_option();
+        $data = $this->extract_start_option($options);
         $domain = $data['domain'];
+        $port = $data['port'];
         $fileName = $data['filename'];
 
         if (pathinfo($fileName, PATHINFO_EXTENSION) === 'php') {
@@ -50,29 +50,13 @@ class Cli
         }
 
         if ($validFile && $validUrl) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public function set_options()
-    {
-        if ($this->validate_url()) {
-            $options = $this->extract_start_option();
-
             global $server_config;
-            $server_config['cli']['address'] = $options['domain'];
-            $server_config['cli']['port'] = $options['port'];
-            $server_config['cli']['filename'] = $options['filename'];
+            $server_config['cli']['address'] = $domain;
+            $server_config['cli']['port'] = $port;
+            $server_config['cli']['filename'] = $fileName;
+            exec('php ' . $fileName);
         } else {
             return false;
         }
-    }
-
-    protected function run_cli(): void
-    {
-        global $server_config;
-        exec('php ' . $server_config['cli']['filename']);
     }
 }
