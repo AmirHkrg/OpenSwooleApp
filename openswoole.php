@@ -1,14 +1,29 @@
 <?php
 
+require_once 'cli';
+
 class OpenswooleApp
 {
     public function __construct(string $address = '127.0.0.1', int $port = 9501, int $mode = OpenSwoole\Server::POOL_MODE, int $sock_type = OpenSwoole\Constant::SOCK_TCP)
     {
+        $cli = new Kernel();
+        $cli->set();
+
         global $server_config;
-        $server_config['addr'] = $address;
-        $server_config['port'] = $port;
-        $server_config['mode'] = $mode;
-        $server_config['type'] = $sock_type;
+
+        if (isset($server_config['cli'])){
+            $server_config['addr'] = $server_config['cli']['domain'];
+            $server_config['port'] = $server_config['cli']['port'];
+            $server_config['mode'] = $mode;
+            $server_config['type'] = $sock_type;
+        }else{
+            $server_config['addr'] = $address;
+            $server_config['port'] = $port;
+            $server_config['mode'] = $mode;
+            $server_config['type'] = $sock_type;
+        }
+
+        $cli->start();
     }
 
     protected function createServer(string $server_type): void
