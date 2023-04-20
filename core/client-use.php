@@ -4,7 +4,7 @@ class Cli
 {
     protected function get_options(): void
     {
-        $options = getopt("S:h::", ["help"]);
+        $options = getopt("S:h::v::", ["help"]);
         foreach ($options as $key => $value) {
             $options[$key] = strtolower($value);
         }
@@ -15,6 +15,10 @@ class Cli
 
         if (isset($options["h"]) || isset($options["help"])){
             $this->help();
+        }
+
+        if (isset($options["v"])) {
+            $this->version();
         }
     }
 
@@ -69,12 +73,17 @@ class Cli
         require_once $fileName;
     }
 
+    private function version(){
+        echo "OpenSwooleApp version : 1.0.0" . PHP_EOL;
+    }
+
     protected function help(){
         $help =
             "Usage: php cli [-Option] [...Parameters]" . PHP_EOL .
             "Options are:" . PHP_EOL .
             "    -S         Address:Port--Filename  Start Server" . PHP_EOL .
             "    -h --help                          Help" . PHP_EOL .
+            "    -v                                 Version info" . PHP_EOL .
             PHP_EOL
         ;
         echo $help;
