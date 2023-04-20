@@ -46,14 +46,12 @@ class Cli
         ];
     }
 
-    protected function validate_url($options)
+    protected function validate_url($options): void
     {
         $data = $this->extract_start_option($options);
         $domain = $data['domain'];
         $port = $data['port'];
         $fileName = $data['filename'];
-
-//        var_dump($data);
 
         if (pathinfo($fileName, PATHINFO_EXTENSION) !== 'php') {
             echo "The selected file must be php";
