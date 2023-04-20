@@ -1,5 +1,6 @@
 <?php
 
-class RedisDB extends OpenswooleApp{
+class RedisDB extends OpenswooleApp
+{
 
 }

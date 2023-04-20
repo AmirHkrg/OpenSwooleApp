@@ -3,6 +3,7 @@
 - Clean Code
 - Easy To Use
 - Faster
+- Cli
 ---
 ### *You can use chain methode.*
 ```php
@@ -110,6 +111,18 @@ Percentage of the requests served within a certain time (ms)
   99%    352
  100%   1462 (longest request)
 ```
+---
+### *Use the terminal.*
+You can run commands such as running the server through the terminal
+```
+php cli -S Address:Port--Filename
+```
+##### Example: 
+```
+php cli -S 127.0.0.1:9501--index.php
+```
+
+In the same way, your program will be executed
 
 ---
 ## Features list :

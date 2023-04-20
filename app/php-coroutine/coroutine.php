@@ -1,6 +1,7 @@
 <?php
 
-class Coroutine extends OpenswooleApp{
+class Coroutine extends OpenswooleApp
+{
     public function create(callable $callback, ...$params): Coroutine
     {
         OpenSwoole\Coroutine::create($callback, $params);
@@ -139,9 +140,9 @@ class Coroutine extends OpenswooleApp{
         return $this;
     }
 
-    public function enableCoroutine (): Coroutine
+    public function enableCoroutine(): Coroutine
     {
-        OpenSwoole\Coroutine::enableCoroutine ();
+        OpenSwoole\Coroutine::enableCoroutine();
         return $this;
     }
 

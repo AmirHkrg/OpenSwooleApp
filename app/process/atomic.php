@@ -1,5 +1,6 @@
 <?php
 
-class Atomic extends OpenswooleApp{
+class Atomic extends OpenswooleApp
+{
 
 }

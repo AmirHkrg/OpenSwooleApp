@@ -1,6 +1,7 @@
 <?php
 
-class CoChannel extends OpenswooleApp{
+class CoChannel extends OpenswooleApp
+{
     private mixed $SERVER;
 
     public function newChannel(int $capacity = 1): CoChannel

@@ -1,6 +1,7 @@
 <?php
 
-class CoSystem extends OpenswooleApp{
+class CoSystem extends OpenswooleApp
+{
     public function statvfs(string $path): CoSystem
     {
         OpenSwoole\Coroutine\System::statvfs($path);

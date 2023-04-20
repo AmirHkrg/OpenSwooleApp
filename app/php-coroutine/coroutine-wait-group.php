@@ -1,6 +1,7 @@
 <?php
 
-class CoWaitGroup extends OpenswooleApp{
+class CoWaitGroup extends OpenswooleApp
+{
     private mixed $SERVER;
 
     public function newWaitGroup(): CoWaitGroup

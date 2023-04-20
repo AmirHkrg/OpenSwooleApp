@@ -1,5 +1,6 @@
 <?php
 
-class MySql extends OpenswooleApp{
+class MySql extends OpenswooleApp
+{
 
 }

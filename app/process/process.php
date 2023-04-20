@@ -1,5 +1,6 @@
 <?php
 
-class Process extends OpenswooleApp{
+class Process extends OpenswooleApp
+{
 
 }

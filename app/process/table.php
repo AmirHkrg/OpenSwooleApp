@@ -1,5 +1,6 @@
 <?php
 
-class Table extends OpenswooleApp{
+class Table extends OpenswooleApp
+{
 
 }

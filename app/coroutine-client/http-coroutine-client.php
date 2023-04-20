@@ -1,5 +1,6 @@
 <?php
 
-class HttpCoClient extends OpenswooleApp{
+class HttpCoClient extends OpenswooleApp
+{
 
 }

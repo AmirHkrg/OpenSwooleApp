@@ -1,6 +1,7 @@
 <?php
 
-class CoServer extends OpenswooleApp{
+class CoServer extends OpenswooleApp
+{
     private mixed $SERVER;
 
     public function newServer(string $host, int $port = 0, bool $ssl = false, bool $reusePort = false): CoServer

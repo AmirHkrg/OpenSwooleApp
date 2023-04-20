@@ -1,5 +1,6 @@
 <?php
 
-class Lock extends OpenswooleApp{
+class Lock extends OpenswooleApp
+{
 
 }

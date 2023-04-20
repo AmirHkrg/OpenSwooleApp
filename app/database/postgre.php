@@ -1,5 +1,6 @@
 <?php
 
-class Postgre extends OpenswooleApp{
+class Postgre extends OpenswooleApp
+{
 
 }

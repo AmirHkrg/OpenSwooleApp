@@ -1,5 +1,6 @@
 <?php
 
-class UdpTcpCoClient extends OpenswooleApp{
+class UdpTcpCoClient extends OpenswooleApp
+{
 
 }
