@@ -1,4 +1,7 @@
 <?php
+declare(strict_types=1);
+
+require_once "core/vendor/autoload.php";
 
 class CoWaitGroup extends OpenswooleApp
 {
