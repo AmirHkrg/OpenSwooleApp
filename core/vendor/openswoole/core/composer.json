@@ -40,7 +40,7 @@
             "OpenSwoole\\Core\\": "src/"
         },
         "files": [
-            "src/Coroutine/functions.php"
+          "src/Coroutine/functions.php"
         ]
     }
 }

@@ -37,7 +37,7 @@ class StackHandler implements RequestHandlerInterface
                 $request,
                 $this->next($middleware)
             )
-            : null;
+            : '';
     }
 
     private function next($middleware)
