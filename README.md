@@ -194,16 +194,16 @@ $server
     ->serverOnStart(function (){
         echo "Server Started";
     })
-    ->on('Open', function(OpenSwoole\WebSocket\Server $serv, OpenSwoole\Http\Request $request) use ($server){
+    ->on('Open', function(OpenSwoole\WebSocket\Server $server, OpenSwoole\Http\Request $request, Timer $timer){
         echo "connection open";
 
-        $server->Timer()->tick(1000, function() use ($serv, $request){
-            $serv->push($request->fd, json_encode(["hello", time()]));
+        $timer->tick(1000, function(OpenSwoole\WebSocket\Server $server, OpenSwoole\Http\Request $request){
+            $server->push($request->fd, json_encode(["hello", time()]));
         });
     })
-    ->on('Message', function(OpenSwoole\WebSocket\Server $serv, Frame $frame) use ($server){
+    ->on('Message', function(OpenSwoole\WebSocket\Server $server, Frame $frame){
         echo "received message: {$frame->data}\n";
-        $serv->push($frame->fd, json_encode(["hello", time()]));
+        $server->push($frame->fd, json_encode(["hello", time()]));
     })
     ->on('Close', function(OpenSwoole\WebSocket\Server $serv, int $fd){
         echo "connection close: {$fd}\n";
